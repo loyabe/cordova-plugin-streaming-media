@@ -27,6 +27,14 @@ StreamingMedia.prototype.playVideo = function (url, options) {
 	cordova.exec(options.successCallback || null, options.errorCallback || null, "StreamingMedia", "playVideo", [url, options]);
 };
 
+StreamingMedia.prototype.stopVideo = function (options) {
+	options = options || {};
+	cordova.exec(options.successCallback || null, options.errorCallback || null, "StreamingMedia", "stopVideo", ["",options]);
+};
+
+StreamingMedia.prototype.onBufferingUpdate = function (progress, position, duration) {
+//	console.log("StreamingMedia:onBufferingUpdate " + data);
+};
 
 StreamingMedia.install = function () {
 	if (!window.plugins) {
